@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const p=require\\('./node_modules/tailwindcss/package.json'\\); console.log\\('tailwind',p.version\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/daisyui/package.json'\\); console.log\\('daisyui',p.version\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/vite/package.json'\\); console.log\\('vite',p.version\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/@tosspayments/tosspayments-sdk/package.json'\\); console.log\\('toss-sdk',p.version\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}
