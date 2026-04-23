@@ -68,7 +68,23 @@ fetch("/api/products"); // RTK Query 외부에서 직접 fetch 금지
 
 ## 결제 플로우
 
-### 전체 흐름
+### 개요
+
+```
+CheckoutPage                    Toss 서버                    SuccessPage / FailPage
+─────────────────────────────────────────────────────────────────────────────────
+widgets.requestPayment()
+  successUrl: /success   →  결제 처리
+  failUrl:    /fail      ←  리다이렉트 (Toss가 쿼리 파라미터를 직접 부착)
+                                │
+                    /success?paymentKey=xxx&orderId=yyy&amount=zzz
+                    /fail?code=xxx&message=yyy
+                                │
+                         useSearchParams()로 수신
+                         confirmPayment({ paymentKey, orderId, amount })
+```
+
+### 상세 흐름
 
 ```
 [브라우저: CheckoutPage /]
